@@ -13,6 +13,7 @@
 </style>
 <head>
 <title>BHF</title>
+<meta charset="utf-8">
 </head>
 
 <body style="font-family:mySecondFont">
@@ -23,15 +24,19 @@
   <input type="radio" id="css" name="fav_language" value="CSS">
   <label for="css">CSS</label><br>
   <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-  <label for="javascript">Your dad</label>
+  <label for="javascript">JavaScript</label>
 </form><br>
 
-<form action="welcome.php" method="post">
-Name: <input type="text" name="name"><br>
-E-mail: <input type="text" name="email"><br>
-<input type="submit">
-</form>
+<button onclick="submit()"><span><h2>Submit</h2></span></button>
+
+<h2 id="change">I don’t know</h2>
 
 </body>
+
+<script>
+function submit() {
+	document.getElementById("change").innerHTML = document.querySelector('input[name="fav_language"]:checked').value;
+}
+</script>
 
 </html>
