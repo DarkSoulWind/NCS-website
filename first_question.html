@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
 <style>
+.topnav {
+	background-color: #333;
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+}
+
+.bottombar {
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
 @font-face {
 	font-family: 'myFirstFont';
 	src: url('SF-Pro.ttf') format('truetype');
@@ -17,13 +32,20 @@
 </head>
 
 <body style="font-family:mySecondFont">
+
+<div class="topnav">
+	<h1 style="text-align:center;color:#ffffff">Clue #1</h1>
+</div>
+
 <h1>How many hearts does an octopus have?</h1>
 <form>
-	<input type="radio" id="two" name="num_hearts" value="two">
+	<input type="radio" id="one" name="num_hearts" value="1">
+	<label for="one">1</label><br>
+	<input type="radio" id="two" name="num_hearts" value="2">
 	<label for="two">2</label><br>
-	<input type="radio" id="three" name="num_hearts" value="three">
+	<input type="radio" id="three" name="num_hearts" value="3">
 	<label for="three">3</label><br>
-	<input type="radio" id="four" name="num_hearts" value="four">
+	<input type="radio" id="four" name="num_hearts" value="4">
 	<label for="four">4</label>
 </form><br>
 
@@ -34,12 +56,30 @@
 	<h3>Octopuses do in fact have three hearts, and each of them serves a different purpose!<br>One of them pumps blood around the body, whilst the other two have the job of pumping blood to the gills.</h3>
 </div>
 
+<div id="ifWrong" style="display:none">
+	<h2>Wrong!</h2>
+	<h3 id="tips"></h3>
+</div>
+
+<div class="bottombar">
+	<p style="text-align:center;color:#ffffff">Accidents and emergencies</p>
+</div>
+
 </body>
 
 <script>
 function submit() {
-	if (document.querySelector('input[name="num_hearts"]:checked').value === "three") {
+	if (document.querySelector('input[name="num_hearts"]:checked').value === "3") {
 		document.getElementById("ifCorrect").style = "display:block";
+		document.getElementById("ifWrong").style = "display:none";
+	} else {
+		if (parseInt(document.querySelector('input[name="num_hearts"]:checked').value) < 3) {
+			document.getElementById("tips").innerHTML = `Believe it or not, octopuses have more than ${document.querySelector('input[name="num_hearts"]:checked').value} heart(s)!`;
+		} else {
+			document.getElementById("tips").innerHTML = "No, an octopus does not have that many hearts.";
+		}
+		document.getElementById("ifWrong").style = "display:block";
+		document.getElementById("ifCorrect").style = "display:none";
 	}
 }
 </script>
