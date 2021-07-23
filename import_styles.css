@@ -1,0 +1,13 @@
+.topnav {
+	background-color: #333;
+	overflow: hidden;
+	width: 100%;
+}
+
+.bottombar {
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
