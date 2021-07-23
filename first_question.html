@@ -27,6 +27,8 @@
 </div>
 
 <h1>How many hearts does an octopus have?</h1>
+
+<div id="choices" style="display:block">
 <form>
 	<input type="radio" id="one" name="num_hearts" value="1">
 	<label for="one">1</label><br>
@@ -39,6 +41,7 @@
 </form><br>
 
 <button onclick="submit()"><span><h2>Submit</h2></span></button>
+</div>
 
 <div id="ifCorrect" style="display:none">
 	<h2>Correct!</h2>
@@ -61,6 +64,7 @@ function submit() {
 	if (document.querySelector('input[name="num_hearts"]:checked').value === "3") {
 		document.getElementById("ifCorrect").style = "display:block";
 		document.getElementById("ifWrong").style = "display:none";
+		document.getElementById("choices").style = "display:none";
 	} else {
 		if (parseInt(document.querySelector('input[name="num_hearts"]:checked').value) < 3) {
 			document.getElementById("tips").innerHTML = `Believe it or not, octopuses have more than ${document.querySelector('input[name="num_hearts"]:checked').value} heart(s)!`;
