@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<style>
+@font-face {
+	font-family: 'myFirstFont';
+	src: url('SF-Pro.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'mySecondFont';
+	src: url('Roboto-Thin.ttf') format('truetype');
+}
+</style>
+<head>
+<title>BHF</title>
+<meta charset="utf-8">
+</head>
+
+<body style="font-family:mySecondFont">
+<h1>How many hearts does an octopus have?</h1>
+<form>
+	<input type="radio" id="two" name="num_hearts" value="two">
+	<label for="two">2</label><br>
+	<input type="radio" id="three" name="num_hearts" value="three">
+	<label for="three">3</label><br>
+	<input type="radio" id="four" name="num_hearts" value="four">
+	<label for="four">4</label>
+</form><br>
+
+<button onclick="submit()"><span><h2>Submit</h2></span></button>
+
+<div id="ifCorrect" style="display:none">
+	<h2>Correct!</h2>
+	<h3>Octopuses do in fact have three hearts, and each of them serves a different purpose!<br>One of them pumps blood around the body, whilst the other two have the job of pumping blood to the gills.</h3>
+</div>
+
+</body>
+
+<script>
+function submit() {
+	if (document.querySelector('input[name="num_hearts"]:checked').value === "three") {
+		document.getElementById("ifCorrect").style = "display:block";
+	}
+}
+</script>
+
+</html>
