@@ -23,33 +23,32 @@
 <body style="font-family:mySecondFont">
 
 <div class="topnav">
-	<h1 style="text-align:center;color:#ffffff">Clue #1</h1>
+	<h1 style="text-align:center;color:#ffffff">Clue #2</h1>
 </div>
 
-<h1>How many hearts does an octopus have?</h1>
+<h1>What percentage of money donated to the British Heart Foundation goes to life saving research?</h1>
 
 <div id="choices" style="display:block">
 <form>
-	<input type="radio" id="one" name="num_hearts" value="1">
-	<label for="one">1</label><br>
-	<input type="radio" id="two" name="num_hearts" value="2">
-	<label for="two">2</label><br>
-	<input type="radio" id="three" name="num_hearts" value="3">
-	<label for="three">3</label><br>
-	<input type="radio" id="four" name="num_hearts" value="4">
-	<label for="four">4</label>
+	<input type="radio" id="fourtytwo" name="percent" value="42">
+	<label for="fourtytwo">42%</label><br>
+	<input type="radio" id="fiftytwo" name="percent" value="52">
+	<label for="fiftytwo">52%</label><br>
+	<input type="radio" id="sixtytwo" name="percent" value="62">
+	<label for="sixtytwo">62%</label><br>
+	<input type="radio" id="seventytwo" name="percent" value="72">
+	<label for="seventytwo">72%</label>
 </form><br>
-
 <button onclick="submit()"><span><h2>Submit</h2></span></button>
 </div>
 
 <div id="ifCorrect" style="display:none">
-	<h2>Correct!</h2>
-	<h3>Octopuses do in fact have three hearts, and each of them serves a different purpose!<br>One of them pumps blood around the body, whilst the other two have the job of pumping blood to the gills.<br>The heart is a really important organ!</h3>
+	<h2>Spot on!</h2>
+	<h3>In 2018-19 the British Heart Foundation managed to raise more than £175 million.<br>£128 million was spent on life-saving research and support for heart patients, while £47 million was spent on the costs associated with generating income.<br><br>This means that for every £1 donated 72p went straight to funding research!</h3>
 </div>
 
 <div id="ifWrong" style="display:none">
-	<h2>Wrong!</h2>
+	<h2>Incorrect!</h2>
 	<h3 id="tips"></h3>
 </div>
 
@@ -61,16 +60,12 @@
 
 <script>
 function submit() {
-	if (document.querySelector('input[name="num_hearts"]:checked').value === "3") {
+	if (document.querySelector('input[name="percent"]:checked').value === "72") {
 		document.getElementById("ifCorrect").style = "display:block";
 		document.getElementById("ifWrong").style = "display:none";
 		document.getElementById("choices").style = "display:none";
 	} else {
-		if (parseInt(document.querySelector('input[name="num_hearts"]:checked').value) < 3) {
-			document.getElementById("tips").innerHTML = `Believe it or not, octopuses have more than ${document.querySelector('input[name="num_hearts"]:checked').value} heart(s)!`;
-		} else {
-			document.getElementById("tips").innerHTML = "No, an octopus does not have that many hearts.";
-		}
+		document.getElementById("tips").innerHTML = `A bit more than ${document.querySelector('input[name="percent"]:checked').value}% goes to funding research on heart and circulatory diseases!`;
 		document.getElementById("ifWrong").style = "display:block";
 		document.getElementById("ifCorrect").style = "display:none";
 	}
