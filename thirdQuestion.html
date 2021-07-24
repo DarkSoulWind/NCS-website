@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>BHF</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="import_styles.css">
+</head>
+
+<style>
+@font-face {
+	font-family: 'myFirstFont';
+	src: url('SF-Pro.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'mySecondFont';
+	src: url('Roboto-Thin.ttf') format('truetype');
+}
+</style>
+
+<body style="font-family:mySecondFont">
+
+<div class="topnav">
+	<h1 style="text-align:center;color:#ffffff">Clue #3</h1>
+</div>
+
+<h1>How many heartbeats do you receive in a day?</h1>
+
+<div id="choices" style="display:block">
+<form>
+	<input type="radio" id="fifty" name="beats" value="50000">
+	<label for="fifty"> Around 50,000 times</label><br>
+	<input type="radio" id="hundred" name="beats" value="100000">
+	<label for="hundred">Around 100,000 times</label><br>
+	<input type="radio" id="hundredfifty" name="beats" value="150000">
+	<label for="hundredfifty">Around 150,000 times</label><br>
+	<input type="radio" id="twohundred" name="beats" value="200000">
+	<label for="twohundred">200,000+ times</label>
+</form><br>
+<button onclick="submit()"><span><h2>Submit</h2></span></button>
+</div>
+
+<div id="ifCorrect" style="display:none">
+	<h2>Correct!</h2>
+	<h3>The heart beats at around 60 to 100 times per minute on average.<br>Given this information, we can work out that the heart can beat at around 100,000 times per day!<br></h3>
+</div>
+
+<div id="ifWrong" style="display:none">
+	<h2>Incorrect!</h2>
+	<h3 id="tips"></h3>
+</div>
+
+<div class="bottombar">
+	<p style="text-align:center;color:#ffffff;font-family:myFirstFont">Accidents and Emergencies • The British Heart Foundation</p>
+</div>
+
+</body>
+
+<script>
+function submit() {
+	if (document.querySelector('input[name="beats"]:checked').value === "100000") {
+		document.getElementById("ifCorrect").style = "display:block";
+		document.getElementById("ifWrong").style = "display:none";
+		document.getElementById("choices").style = "display:none";
+	} else {
+		if (parseInt(document.querySelector('input[name="beats"]:checked').value) < 100000) {
+			document.getElementById("tips").innerHTML = "I don't think it's possible to survive a day with that little amount of heartbeats."
+		} else {
+			document.getElementById("tips").innerHTML = "That is a very unhealthily high amount of heartbeats to receive."
+		}
+		document.getElementById("ifWrong").style = "display:block";
+		document.getElementById("ifCorrect").style = "display:none";
+	}
+}
+</script>
+
+</html>
