@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>BHF</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="import_styles.css">
+</head>
+
+<style>
+@font-face {
+	font-family: 'myFirstFont';
+	src: url('SF-Pro.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'mySecondFont';
+	src: url('Roboto-Thin.ttf') format('truetype');
+}
+</style>
+
+<body style="font-family:mySecondFont">
+
+<div class="topnav">
+	<h1 style="text-align:center;color:#ffffff">Clue #4</h1>
+</div>
+
+<h1>How many hours of exercise should children 5-18 do per day?</h1>
+
+<div id="choices" style="display:block">
+<form>
+	<input type="radio" id="thirty" name="hours" value="30">
+	<label for="thirty">Half an hour</label><br>
+	<input type="radio" id="sixty" name="hours" value="60">
+	<label for="sixty">One hour</label><br>
+	<input type="radio" id="ninety" name="hours" value="90">
+	<label for="ninety">One hour and a half</label><br>
+	<input type="radio" id="hundredtwenty" name="hours" value="120">
+	<label for="hundredtwenty">Two hours or more</label>
+</form><br>
+<button onclick="submit()"><span><h2>Submit</h2></span></button>
+</div>
+
+<div id="ifCorrect" style="display:none">
+	<h2>Correct!</h2>
+	<h3>The NHS recommends that children and young people aged 5 to 18 should aim for an average of at least 60 minutes of moderate intensity exercise each day.<br></h3>
+</div>
+
+<div id="ifWrong" style="display:none">
+	<h2>Nope.</h2>
+	<h3 id="tips"></h3>
+</div>
+
+<div class="bottombar">
+	<p style="text-align:center;color:#ffffff;font-family:myFirstFont">Accidents and Emergencies • The British Heart Foundation</p>
+</div>
+
+</body>
+
+<script>
+function submit() {
+	if (document.querySelector('input[name="hours"]:checked').value === "60") {
+		document.getElementById("ifCorrect").style = "display:block";
+		document.getElementById("ifWrong").style = "display:none";
+		document.getElementById("choices").style = "display:none";
+	} else {
+		if (parseInt(document.querySelector('input[name="hours"]:checked').value) < 60) {
+			document.getElementById("tips").innerHTML = "That is less than recommended.";
+		} else {
+			document.getElementById("tips").innerHTML = "That is much more than recommended.";
+		}
+		document.getElementById("ifWrong").style = "display:block";
+		document.getElementById("ifCorrect").style = "display:none";
+	}
+}
+</script>
+
+</html>

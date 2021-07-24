@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>BHF</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="import_styles.css">
+</head>
+
+<style>
+@font-face {
+	font-family: 'myFirstFont';
+	src: url('SF-Pro.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'mySecondFont';
+	src: url('Roboto-Thin.ttf') format('truetype');
+}
+</style>
+
+<body style="font-family:mySecondFont">
+
+<div class="topnav">
+	<h1 style="text-align:center;color:#ffffff">Clue #5</h1>
+</div>
+
+<h1>Which blood vessel in the body carries blood away from the heart?</h1>
+
+<div id="choices" style="display:block">
+<form>
+	<input type="radio" id="artery" name="vessel" value="arteries">
+	<label for="artery">Arteries</label><br>
+	<input type="radio" id="cells" name="vessel" value="red blood cells">
+	<label for="cells">Red blood cells</label><br>
+	<input type="radio" id="corona" name="vessel" value="coronavirus">
+	<label for="corona">Coronavirus</label><br>
+	<input type="radio" id="cap" name="vessel" value="capillaries">
+	<label for="cap">Capillaries</label>
+</form><br>
+<button onclick="submit()"><span><h2>Submit</h2></span></button>
+</div>
+
+<div id="ifCorrect" style="display:none">
+	<h2>Indeed!</h2>
+	<h3>As you should know from GCSE Science, arteries carry oxygenated blood (with the exception of the pulmonary artery) from the heart to the body tissues.<br></h3>
+</div>
+
+<div id="ifWrong" style="display:none">
+	<h2 id="what"></h2>
+	<h3 id="tips"></h3>
+</div>
+
+<div class="bottombar">
+	<p style="text-align:center;color:#ffffff;font-family:myFirstFont">Accidents and Emergencies • The British Heart Foundation</p>
+</div>
+
+</body>
+
+<script>
+function submit() {
+	if (document.querySelector('input[name="vessel"]:checked').value === "arteries") {
+		document.getElementById("ifCorrect").style = "display:block";
+		document.getElementById("ifWrong").style = "display:none";
+		document.getElementById("choices").style = "display:none";
+	} else {
+		if (document.querySelector('input[name="vessel"]:checked').value === "red blood cells") {
+			document.getElementById("what").innerHTML = "What?";
+			document.getElementById("tips").innerHTML = "Red blood cells aren't a blood vessel.";
+		} else if (document.querySelector('input[name="vessel"]:checked').value === "coronavirus") {
+			document.getElementById("what").innerHTML = "No.";
+			document.getElementById("tips").innerHTML = "Just no.";
+		} else {
+			document.getElementById("what").innerHTML = "Incorrect!";
+			document.getElementById("tips").innerHTML = "Capillaries do not carry blood away from the heart.";
+		}
+		document.getElementById("ifWrong").style = "display:block";
+		document.getElementById("ifCorrect").style = "display:none";
+	}
+}
+</script>
+
+</html>
