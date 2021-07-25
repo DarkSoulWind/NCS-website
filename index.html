@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+<title>Clue #1</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="import_styles.css">
+</head>
+
 <style>
 @font-face {
 	font-family: 'myFirstFont';
@@ -11,32 +19,22 @@
 	src: url('Roboto-Thin.ttf') format('truetype');
 }
 </style>
-<head>
-<title>BHF</title>
-<meta charset="utf-8">
-</head>
 
 <body style="font-family:mySecondFont">
-<h1>bare peng</h1>
-<form>
-  <input type="radio" id="html" name="fav_language" value="HTML">
-  <label for="html">HTML</label><br>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">CSS</label><br>
-  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-  <label for="javascript">JavaScript</label>
-</form><br>
 
-<button onclick="submit()"><span><h2>Submit</h2></span></button>
+<div class="topnav">
+	<h1 style="text-align:center;color:#ffffff">Team Accidents and Emergencies</h1>
+</div>
 
-<h2 id="change">I don’t know</h2>
+<h1>We are team accidents and emergencies!</h1>
+
+<div class="bottombar">
+	<p style="text-align:center;color:#ffffff;font-family:myFirstFont">Accidents and Emergencies • <a href="https://www.bhf.org.uk" class="BHFlink">The British Heart Foundation</a></p>
+</div>
 
 </body>
 
 <script>
-function submit() {
-	document.getElementById("change").innerHTML = document.querySelector('input[name="fav_language"]:checked').value;
-}
 </script>
 
 </html>
