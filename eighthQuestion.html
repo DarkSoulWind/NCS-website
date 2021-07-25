@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>BHF</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="import_styles.css">
+</head>
+
+<style>
+@font-face {
+	font-family: 'myFirstFont';
+	src: url('SF-Pro.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'mySecondFont';
+	src: url('Roboto-Thin.ttf') format('truetype');
+}
+</style>
+
+<body style="font-family:mySecondFont">
+
+<div class="topnav">
+	<h1 style="text-align:center;color:#ffffff">Clue #8</h1>
+</div>
+
+<h1>Which of these diseases affect the heart?</h1>
+
+<div id="choices" style="display:block">
+<form>
+	<input type="radio" id="corona" name="diseases" value="coronavirus">
+	<label for="corona">Coronavirus</label><br>
+	<input type="radio" id="cad" name="diseases" value="cad">
+	<label for="cad">Coronary artery disease</label><br>
+	<input type="radio" id="arrhythmia" name="diseases" value="arrhythmia">
+	<label for="arrhythmia">Arrhythmia (abnormal heart rhythms)</label><br>
+	<input type="radio" id="all" name="diseases" value="all">
+	<label for="all">All of the above</label>
+</form><br>
+<button onclick="submit()"><span><h2>Submit</h2></span></button>
+</div>
+
+<div id="ifCorrect" style="display:none">
+	<h2 id="correct">Correct!</h2>
+	<h3 id="tips">The heart consists of 4 chambers, the left and right atria and the left and right ventricles.<br></h3>
+</div>
+
+<div class="bottombar">
+	<p style="text-align:center;color:#ffffff;font-family:myFirstFont">Accidents and Emergencies • The British Heart Foundation</p>
+</div>
+
+</body>
+
+<script>
+
+function submit() {
+	if (document.querySelector('input[name="diseases"]:checked').value === "all") {
+		document.getElementById("correct").innerHTML = "Spot on!";
+		document.getElementById("tips").innerHTML = "All of these diseases do in fact affect the heart in a variety of ways.";
+	} else if (document.querySelector('input[name="diseases"]:checked').value === "coronavirus") {
+		document.getElementById("correct").innerHTML = "Correct!";
+		document.getElementById("tips").innerHTML = "The deadly coronavirus responsible for the worldwide pandemic has shown to invade and inflame the heart muscle, which can lead to some serious health problems. <br><br>The virus can also cause a staggering oxygen demand while simultaneously decreasing the body's oxygen supply, which indirectly damages the heart.";
+	} else if (document.querySelector('input[name="diseases"]:checked').value === "cad") {
+		document.getElementById("correct").innerHTML = "Correct!";
+		document.getElementById("tips").innerHTML = "Coronary artery disease is a serious condition where fatty deposits in the arteries build up and restrict blood flow. <br><br>This can result in heart attacks or even death as blood supply to the heart becomes severely restricted.";
+	} else  {
+		document.getElementById("correct").innerHTML = "Correct!";
+		document.getElementById("tips").innerHTML = "Your heartbeat is stimulated by the heart muscle's electrical system, known as the pacemaker.<br><br>Arrythmia is the disruption of this electrical system, which leads to abnormal heart rhythms that cause the heart to beat in an irregular pattern.";
+	}
+	document.getElementById("ifCorrect").style = "display:block";
+	document.getElementById("choices").style = "display:none";
+}
+</script>
+
+</html>
