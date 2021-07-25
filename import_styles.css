@@ -1,3 +1,18 @@
+@font-face {
+	font-family: 'myFirstFont';
+	src: url('SF-Pro.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'myFirstFontBold';
+	src: url('Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'mySecondFont';
+	src: url('Roboto-Thin.ttf') format('truetype');
+}
+
 .topnav {
 	background-color: #333;
 	overflow: hidden;
