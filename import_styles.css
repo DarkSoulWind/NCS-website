@@ -12,3 +12,15 @@
 	bottom: 0;
 	width: 100%;
 }
+
+.BHFlink:link {
+	color: white;
+}
+
+.BHFlink:visited {
+	color: white;
+}
+
+.BHFlink:active {
+	color: hotpink;
+}
