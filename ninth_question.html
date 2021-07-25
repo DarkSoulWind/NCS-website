@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>BHF</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="import_styles.css">
+</head>
+
+<style>
+@font-face {
+	font-family: 'myFirstFont';
+	src: url('SF-Pro.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'mySecondFont';
+	src: url('Roboto-Thin.ttf') format('truetype');
+}
+</style>
+
+<body style="font-family:mySecondFont">
+
+<div class="topnav">
+	<h1 style="text-align:center;color:#ffffff">Clue #9</h1>
+</div>
+
+<h1>How many people in the UK live with a heart or circulatory disease?</h1>
+
+<div id="choices" style="display:block">
+<form>
+	<input type="radio" id="6.6" name="people" value="66">
+	<label for="6.6">6.6 million</label><br>
+	<input type="radio" id="7.1" name="people" value="71">
+	<label for="7.1">7.1 million</label><br>
+	<input type="radio" id="7.6" name="people" value="76">
+	<label for="7.6">7.6 million</label><br>
+	<input type="radio" id="8.1" name="people" value="81">
+	<label for="8.1">8.1 million</label>
+</form><br>
+<button onclick="submit()"><span><h2>Submit</h2></span></button>
+</div>
+
+<div id="ifCorrect" style="display:none">
+	<h2>Correct!</h2>
+	<h3>According to the British Heart Foundation, an estimated 7.6 million people live with a heart or circulatory disease in the UK.<br><br>Around 4 million are men and 3.6 million are women, and these numbers are only climbing everyday.<br></h3>
+</div>
+
+<div id="ifWrong" style="display:none">
+	<h2>Wrong.</h2>
+	<h3 id="tips"></h3>
+</div>
+
+<div class="bottombar">
+	<p style="text-align:center;color:#ffffff;font-family:myFirstFont">Accidents and Emergencies • The British Heart Foundation</p>
+</div>
+
+</body>
+
+<script>
+function submit() {
+	if (document.querySelector('input[name="people"]:checked').value === "76") {
+		document.getElementById("ifCorrect").style = "display:block";
+		document.getElementById("ifWrong").style = "display:none";
+		document.getElementById("choices").style = "display:none";
+	} else {
+		if (parseInt(document.querySelector('input[name="people"]:checked').value) < 76) {
+			document.getElementById("tips").innerHTML = `Sadly it happens to be more than ${document.querySelector('input[name="people"]:checked').value} million people who live with these serious conditions in the UK.`
+		} else {
+			document.getElementById("tips").innerHTML = "Hopefully with the support we get for the British Heart Foundation and beyond, numbers don't increase to that high. For now the future remains stark."
+		}
+		document.getElementById("ifWrong").style = "display:block";
+		document.getElementById("ifCorrect").style = "display:none";
+	}
+}
+</script>
+
+</html>
